@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Short it</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Short it - the ultimate URL shortener tool</h1>
+      <div class="form-container">
+        <form action="/url" method="POST">
+          <label>Enter the URL to shorten :</label>
+          <input type="text" name="url" placeholder="https://example.com" />
+          <button type="submit">Generate</button>
+        </form>
+      </div>
+      <div>
+        <% if (locals.id) { %>
+        <p>Generated URL : http://localhost:8000/url/<%=id%></p>
+        <% } %> <% if (locals.urls) { %>
+        <table>
+          <thead>
+            <th>S.no</th>
+            <th>shortid</th>
+            <th>redirect url</th>
+            <th>No. of clicks</th>
+          </thead>
+          <tbody>
+            <% urls.forEach((elm,index) => { %>
+            <tr>
+              <td><%= index+1 %></td>
+              <td><%= `http://localhost:8000/url/${elm.shortId}` %></td>
+              <td><%= elm.redirectUrl %></td>
+              <td><%= elm.visitHistory.length %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

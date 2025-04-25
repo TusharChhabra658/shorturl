@@ -6,7 +6,12 @@ async function showAllEntries(req, res) {
   const html = `
   <ol>
     ${result
-      .map((entry) => `<li><a href=${entry.redirectUrl}>${entry.redirectUrl.substring(8)}</a>  :  ${entry.shortId}</li>`)
+      .map(
+        (entry) =>
+          `<li><a href=${entry.redirectUrl}>${entry.redirectUrl.substring(
+            8
+          )}</a>  :  ${entry.shortId}</li>`
+      )
       .join("")}
   </ol>
   `;
@@ -22,9 +27,12 @@ async function generateShortUrl(req, res) {
     shortId: shortid,
     redirectUrl: body.url,
     visitHistory: [],
+    createdBy: req.user._id,
   });
 
-  return res.json({ id: shortid });
+  return res.render("home", {
+    id: shortid,
+  });
 }
 
 async function redirectToUrl(req, res) {

@@ -1,0 +1,50 @@
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    justify-content: center;
+}
+
+.main{
+   display: flex; 
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 1rem;
+    flex-direction: column;
+}
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+form label{
+    font-size: 1.3rem;
+}
+form input{
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+}
+form button{
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    background-color: rgb(142, 142, 142);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    transition: transform 0.2s ease;
+}
+form button:hover{
+    background-color: rgb(152, 152, 152);
+    transform: scale(1.1);
+}
